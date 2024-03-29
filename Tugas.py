@@ -21,7 +21,18 @@ class Jadwal:
             print(f"Semua kelas pada hari {hari} telah dihapus.")
         else:
             print("Tidak ditemukan kelas pada hari tersebut.")
-            
+
+     def tampilkan_jadwal(self):
+        # Menampilkan jadwal
+        print("Jadwal:")
+        if not self.jadwal:
+            print("Tidak ada kelas yang terjadwal.")
+        else:
+            for hari, kelas in self.jadwal.items():
+                print(hari)
+                for waktu, mata_kuliah in kelas.items():
+                    print(f"\t{waktu}: {mata_kuliah}")
+
     def dapatkan_jadwal_pengguna() -> Jadwal:
     # Mendapatkan jadwal dari pengguna
     jadwal = Jadwal()

@@ -21,7 +21,32 @@ class Jadwal:
             print(f"Semua kelas pada hari {hari} telah dihapus.")
         else:
             print("Tidak ditemukan kelas pada hari tersebut.")
-            def main() -> None:
+            
+    def dapatkan_jadwal_pengguna() -> Jadwal:
+    # Mendapatkan jadwal dari pengguna
+    jadwal = Jadwal()
+    print("Masukkan jadwal Anda dengan format (hari, waktu, mata kuliah), 'hapus, hari' untuk menghapus jadwal pada hari tertentu, 'jadwal' untuk menampilkan jadwal, atau 'selesai' untuk menyelesaikan:")
+    while True:
+        input_pengguna = input("Masukkan jadwal: ").split(",")
+        command = input_pengguna[0].strip().lower()
+        if command == 'selesai':
+            break
+        elif command == 'hapus':
+            if len(input_pengguna) == 2:
+                hari = input_pengguna[1].strip()
+                jadwal.hapus_kelas(hari)
+            else:
+                print("Format input tidak valid. Masukkan dengan format: hapus, hari")
+        elif command == 'jadwal':
+            jadwal.tampilkan_jadwal()
+        elif len(input_pengguna) == 3:
+            hari, waktu, mata_kuliah = map(str.strip, input_pengguna)
+            jadwal.tambah_kelas(hari, waktu, mata_kuliah)
+        else:
+            print("Format input tidak valid. Masukkan dengan format: hari, waktu, mata kuliah")
+    return jadwal
+
+    def main() -> None:
     # Fungsi utama program
     print("Selamat datang di aplikasi penjadwalan.")
     print("Gunakan aplikasi ini untuk menyusun jadwal kuliah Anda.")

@@ -22,7 +22,7 @@ class Jadwal:
         else:
             print("Tidak ditemukan kelas pada hari tersebut.")
 
-     def tampilkan_jadwal(self):
+    def tampilkan_jadwal(self):
         # Menampilkan jadwal
         print("Jadwal:")
         if not self.jadwal:
@@ -33,7 +33,7 @@ class Jadwal:
                 for waktu, mata_kuliah in kelas.items():
                     print(f"\t{waktu}: {mata_kuliah}")
 
-    def dapatkan_jadwal_pengguna() -> Jadwal:
+def dapatkan_jadwal_pengguna() -> Jadwal:
     # Mendapatkan jadwal dari pengguna
     jadwal = Jadwal()
     print("Masukkan jadwal Anda dengan format (hari, waktu, mata kuliah), 'hapus, hari' untuk menghapus jadwal pada hari tertentu, 'jadwal' untuk menampilkan jadwal, atau 'selesai' untuk menyelesaikan:")
@@ -57,7 +57,7 @@ class Jadwal:
             print("Format input tidak valid. Masukkan dengan format: hari, waktu, mata kuliah")
     return jadwal
 
-    def main() -> None:
+def main() -> None:
     # Fungsi utama program
     print("Selamat datang di aplikasi penjadwalan.")
     print("Gunakan aplikasi ini untuk menyusun jadwal kuliah Anda.")
@@ -71,4 +71,3 @@ class Jadwal:
 
 if __name__ == "__main__":
     main()
-
